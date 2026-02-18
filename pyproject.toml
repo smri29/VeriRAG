@@ -1,0 +1,58 @@
+[project]
+name = "verirag"
+version = "0.1.0"
+description = "VeriRAG: Evidence-first RAG with verification, contradiction detection, and regression tests."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "VeriRAG" }]
+dependencies = [
+  "pydantic>=2.8,<3.0",
+  "pydantic-settings>=2.4,<3.0",
+  "PyYAML>=6.0.1,<7.0",
+  "rich>=13.7,<14.0",
+  "loguru>=0.7.2,<0.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9.0,<10.0",
+  "mypy>=1.10,<2.0",
+  "ruff>=0.15,<0.16",
+  "pre-commit>=4.5,<5.0",
+]
+
+# We'll add "rag" extra next step (pdf, embeddings, qdrant/chroma, etc.)
+
+[project.scripts]
+verirag = "verirag.cli.main:main"
+
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

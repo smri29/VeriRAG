@@ -1,0 +1,115 @@
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+
+# =========================
+# Python / Build
+# =========================
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# =========================
+# Secrets / Env
+# =========================
+.env
+.env.*
+!.env.example
+
+# Keys / credentials (paranoid)
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*credentials*.json
+**/*secret*.json
+**/*apikey*.txt
+**/*api_key*.txt
+**/*token*.txt
+
+# =========================
+# Data (critical)
+# =========================
+# Real corpora should never be committed
+data/raw/
+
+# Optional: keep curated demo data in git
+# (Do NOT ignore data/curated/)
+# data/curated/  <-- intentionally not ignored
+
+# Any accidental drops of large raw data elsewhere
+**/*.pdf
+**/*.docx
+**/*.pptx
+**/*.xlsx
+**/*.zip
+**/*.7z
+**/*.tar
+**/*.gz
+
+# If you DO want to allow small demo PDFs in data/curated/,
+# create explicit exceptions like:
+#!data/curated/**/*.pdf
+
+# =========================
+# Storage / Indexes / Exports (derived artifacts)
+# =========================
+storage/
+# If you want the folder to exist in repo, add an empty placeholder file:
+# storage/.gitkeep (and then unignore it with !storage/.gitkeep)
+!storage/.gitkeep
+
+# =========================
+# Logs / Telemetry
+# =========================
+logs/
+*.log
+
+# =========================
+# Notebooks / Scratch
+# =========================
+.ipynb_checkpoints/
+notebooks/
+scratch/
+tmp/
+temp/
+
+# =========================
+# Node (if used later)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
